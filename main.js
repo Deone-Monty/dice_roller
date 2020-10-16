@@ -6,6 +6,8 @@ let totalNumber = document.querySelector("#total-number");
 let showAllRolls = document.querySelector("#show-all-rolls");
 let rollResults = document.querySelector("#roll-results");
 let dieRolls = []
+
+
 function giveMeRandomNumber() {
     return Math.floor(Math.random() * 6) + 1;
 
@@ -19,11 +21,22 @@ rollButton.addEventListener("click", function() {
     numberofDice.value = "";
     while(count < maxRolls) {
        // dieRolls.push("The number rolled: " + count);
-       dieRolls.push("The number rolled: " + giveMeRandomNumber());
+       dieRolls.push( giveMeRandomNumber());
         count++;
 
     }
+    let total = 0
+    let i = 0
+
+    while(i < dieRolls.length) {
+        total = dieRolls[i] + total
+        i++
+    }
+
     console.log(dieRolls)
+
+    totalNumber.innerHTML = total;
+
      
 })
 
